@@ -1,0 +1,17 @@
+<div class="border">
+  <h1 id="center">Letters Word</h1>
+  <h2 id="dflex">
+    <% @letters.each do |element| %>
+      <div class="grid-item"><%= element %></div>
+    <% end %>
+  </h2>
+
+  <div id="center">
+    <form action="/gamescore" method="post" data-turbo="false">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters.join %>
+      <input type="text" name="word" placeholder="your word" class="heighttext">
+      <input type="submit" value="play" class="play-again">
+    </form>
+  </div>
+</div>
